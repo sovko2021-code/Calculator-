@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Калькулятор</title>
+    <title>Калькулятор натяжных потолков</title>
+    <style>
+        body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; background: #f0f2f5; }
+        .calc { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 0 20px #ccc; }
+        input, select { width: 100%; padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 10px; font-size: 16px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #2c7be0; color: white; border: none; border-radius: 30px; font-size: 18px; cursor: pointer; }
+        button:hover { background: #1a5bb5; }
+        .result { font-size: 32px; font-weight: bold; color: #2c7be0; text-align: center; margin-top: 20px; }
+        label { font-weight: bold; }
+    </style>
 </head>
 <body>
-    <h2>Тест калькулятора</h2>
-    <p>Длина: <input type="number" id="d" value="4"></p>
-    <p>Ширина: <input type="number" id="w" value="3"></p>
-    <button onclick="calc()">Рассчитать</button>
-    <p>Результат: <span id="res">0</span> ₽</p>
 
-    <script>
-        function calc() {
-            let d = document.getElementById('d').value;
-            let w = document.getElementById('w').value;
-            let result = d * w;
-            document.getElementById('res').innerHTML = result;
-        }
-    </script>
+<div class="calc">
+    <h2 style="text-align:center;">Расчёт натяжного потолка</h2>
+
+    <label>Длина комнаты (м)</label>
+    <input type="number" id="d" value="4" step="0.1">
+
+    <label>Ширина комнаты (м)</label>
+    <input type="number" id="w" value="3" step="0.1">
+
+    <label>Тип полотна</label>
+    <select id="m">
+        <option value="500">Матовый (500 ₽/м²)</option>
+        <option value="700">Глянцевый (700 ₽/м²)</option>
+        <option value="900">Сатин (900 ₽/м²)</option>
+    </select>
+
+    <label>Количество светильников</label>
+    <input type="number" id="l" value="4" min="0">
+
+    <label>Трубы для обхода</label>
+    <input type="number" id="p" value="0" min="0">
+
+    <button onclick="calc()">Рассчитать стоимость</button>
+
+    <div class="result" id="res">0 ₽</div>
+</div>
+
+<script>
+function calc() {
+    let d = parseFloat(document.getElementById('d').value) || 0;
+    let w = parseFloat(document.getElementById('w').value) || 0;
+    let m = parseFloat(document.getElementById('m').value);
+    let l = parseInt(document.getElementById('l').value) || 0;
+    let p = parseInt(document.getElementById('p').value) || 0;
+
+    let area = d * w;
+    let perimeter = (d + w) * 2;
+
+    let total = (area * m) + (perimeter * 150) + (l * 500) + (p * 400) + (area * 300);
+
+    document.getElementById('res').innerHTML = total.toFixed(0) + ' ₽';
+}
+
+// Автоматический расчёт при загрузке
+window.onload = calc;
+</script>
+
 </body>
 </html>

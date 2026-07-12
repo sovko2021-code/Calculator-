@@ -1,44 +1,178 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Калькулятор натяжных потолков</title>
+    <title>POTOLUX — Натяжные потолки</title>
     <style>
-        body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; background: #f0f2f5; }
-        .calc { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 0 20px #ccc; }
-        input, select { width: 100%; padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 10px; font-size: 16px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: #2c7be0; color: white; border: none; border-radius: 30px; font-size: 18px; cursor: pointer; }
-        button:hover { background: #1a5bb5; }
-        .result { font-size: 32px; font-weight: bold; color: #2c7be0; text-align: center; margin-top: 20px; }
-        label { font-weight: bold; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            max-width: 420px; 
+            margin: 30px auto; 
+            padding: 15px; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .calc { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 24px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-top: 5px solid #c9a84c;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .logo h1 {
+            font-size: 32px;
+            color: #1a1a2e;
+            margin: 0;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+        .logo h1 span {
+            color: #c9a84c;
+        }
+        .logo p {
+            color: #888;
+            font-size: 14px;
+            margin: 0;
+            letter-spacing: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin: -5px 0 15px 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+        }
+        label { 
+            display: block; 
+            font-weight: 600; 
+            margin-top: 12px; 
+            color: #333;
+            font-size: 14px;
+        }
+        input, select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 4px; 
+            border: 2px solid #e8e8e8; 
+            border-radius: 12px; 
+            font-size: 16px; 
+            box-sizing: border-box;
+            transition: 0.3s;
+            background: #fafafa;
+        }
+        input:focus, select:focus {
+            border-color: #c9a84c;
+            outline: none;
+            background: white;
+        }
+        button { 
+            width: 100%; 
+            padding: 16px; 
+            background: linear-gradient(135deg, #c9a84c, #b8923a);
+            color: white; 
+            border: none; 
+            border-radius: 30px; 
+            font-size: 20px; 
+            font-weight: 700;
+            cursor: pointer; 
+            margin-top: 20px;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+        button:hover { 
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4);
+        }
+        .result { 
+            font-size: 34px; 
+            font-weight: 800; 
+            color: #1a1a2e; 
+            text-align: center; 
+            margin-top: 20px; 
+            padding: 15px;
+            background: #f8f6f0;
+            border-radius: 16px;
+            border: 2px dashed #c9a84c;
+        }
+        .result span {
+            color: #c9a84c;
+        }
+        .detail {
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+            margin-top: 8px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+        .badge {
+            display: inline-block;
+            background: #c9a84c;
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
 
 <div class="calc">
-    <h2 style="text-align:center;">Расчёт натяжного потолка</h2>
 
-    <label>Длина комнаты (м)</label>
+    <!-- ЛОГОТИП -->
+    <div class="logo">
+        <h1>POTOL<span>UX</span></h1>
+        <p>НАТЯЖНЫЕ ПОТОЛКИ</p>
+    </div>
+    <div class="subtitle">
+        <span class="badge">★ Профессиональный расчёт</span> 
+        <span style="margin-left:8px; color:#999;">by Anton Voitovich</span>
+    </div>
+
+    <!-- ПОЛЯ -->
+    <label>📏 Длина комнаты (м)</label>
     <input type="number" id="d" value="4" step="0.1">
 
-    <label>Ширина комнаты (м)</label>
+    <label>📐 Ширина комнаты (м)</label>
     <input type="number" id="w" value="3" step="0.1">
 
-    <label>Тип полотна</label>
+    <label>🧵 Тип полотна</label>
     <select id="m">
         <option value="500">Матовый (500 ₽/м²)</option>
         <option value="700">Глянцевый (700 ₽/м²)</option>
         <option value="900">Сатин (900 ₽/м²)</option>
+        <option value="1200">Тканевый (1200 ₽/м²)</option>
     </select>
 
-    <label>Количество светильников</label>
+    <label>💡 Количество светильников</label>
     <input type="number" id="l" value="4" min="0">
 
-    <label>Трубы для обхода</label>
+    <label>🔧 Трубы для обхода</label>
     <input type="number" id="p" value="0" min="0">
 
-    <button onclick="calc()">Рассчитать стоимость</button>
+    <!-- КНОПКА -->
+    <button onclick="calc()">💰 Рассчитать стоимость</button>
 
-    <div class="result" id="res">0 ₽</div>
+    <!-- РЕЗУЛЬТАТ -->
+    <div class="result" id="res">0 <span>₽</span></div>
+    <div class="detail">* Ориентировочная стоимость с учётом материалов и работы</div>
+
+    <!-- ПОДВАЛ -->
+    <div class="footer">
+        📞 <a href="tel:+71234567890" style="color:#c9a84c; text-decoration:none; font-weight:600;">+7 (123) 456-78-90</a> &nbsp;|&nbsp; 
+        ⏱️ Монтаж 1–2 дня
+    </div>
 </div>
 
 <script>
@@ -54,7 +188,7 @@ function calc() {
 
     let total = (area * m) + (perimeter * 150) + (l * 500) + (p * 400) + (area * 300);
 
-    document.getElementById('res').innerHTML = total.toFixed(0) + ' ₽';
+    document.getElementById('res').innerHTML = total.toFixed(0) + ' <span>₽</span>';
 }
 
 window.onload = calc;

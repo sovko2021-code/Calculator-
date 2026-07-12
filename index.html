@@ -4,105 +4,76 @@
     <title>POTOLUX — Натяжные потолки</title>
     <style>
         body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-family: Arial; 
             max-width: 420px; 
             margin: 30px auto; 
             padding: 15px; 
             background: #0d0d0d;
-            min-height: 100vh;
         }
         .calc { 
-            background: linear-gradient(145deg, #1a1a1a, #121212);
+            background: #1a1a1a;
             padding: 25px; 
             border-radius: 24px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(201, 168, 76, 0.1);
-            border: 1px solid #2a2a2a;
             border-top: 5px solid #c9a84c;
-        }
-        .logo {
-            text-align: center;
-            margin-bottom: 10px;
+            box-shadow: 0 0 30px rgba(201,168,76,0.1);
         }
         .logo h1 {
             font-size: 34px;
             color: #ffffff;
-            margin: 0;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
+            text-align: center;
         }
         .logo h1 span {
             color: #c9a84c;
-            text-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
         }
         .logo p {
             color: #888;
-            font-size: 14px;
-            margin: 0;
+            text-align: center;
             letter-spacing: 6px;
         }
         .subtitle {
             text-align: center;
             color: #666;
-            font-size: 13px;
-            margin: -5px 0 15px 0;
             border-bottom: 1px solid #2a2a2a;
             padding-bottom: 12px;
         }
         label { 
             display: block; 
-            font-weight: 600; 
-            margin-top: 12px; 
             color: #ddd;
-            font-size: 14px;
+            margin-top: 15px;
+            font-weight: bold;
         }
         input, select { 
             width: 100%; 
             padding: 12px; 
-            margin-top: 4px; 
             border: 2px solid #2a2a2a; 
             border-radius: 12px; 
-            font-size: 16px; 
-            box-sizing: border-box;
-            transition: 0.3s;
             background: #1a1a1a;
             color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
         }
         input:focus, select:focus {
             border-color: #c9a84c;
             outline: none;
-            background: #222;
-            box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
-        }
-        select option {
-            background: #1a1a1a;
-            color: #fff;
         }
         button { 
             width: 100%; 
             padding: 16px; 
-            background: linear-gradient(135deg, #c9a84c, #b8923a);
+            background: #c9a84c;
             color: #0d0d0d; 
             border: none; 
             border-radius: 30px; 
             font-size: 20px; 
-            font-weight: 700;
+            font-weight: bold;
             cursor: pointer; 
             margin-top: 20px;
-            transition: 0.3s;
-            letter-spacing: 1px;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
         }
         button:hover { 
-            transform: scale(1.02);
-            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.4);
-        }
-        button:active {
-            transform: scale(0.98);
+            background: #b8923a;
         }
         .result { 
             font-size: 34px; 
-            font-weight: 800; 
+            font-weight: bold; 
             color: #ffffff; 
             text-align: center; 
             margin-top: 20px; 
@@ -110,7 +81,6 @@
             background: #0d0d0d;
             border-radius: 16px;
             border: 2px solid #c9a84c;
-            box-shadow: inset 0 0 30px rgba(201, 168, 76, 0.05);
         }
         .result span {
             color: #c9a84c;
@@ -124,7 +94,6 @@
         .footer {
             text-align: center;
             margin-top: 15px;
-            font-size: 13px;
             color: #444;
             border-top: 1px solid #1a1a1a;
             padding-top: 12px;
@@ -132,24 +101,15 @@
         .footer a {
             color: #c9a84c;
             text-decoration: none;
-            font-weight: 600;
-        }
-        .footer a:hover {
-            text-decoration: underline;
+            font-weight: bold;
         }
         .badge {
-            display: inline-block;
             background: #c9a84c;
             color: #0d0d0d;
             padding: 2px 14px;
             border-radius: 20px;
             font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        ::selection {
-            background: #c9a84c;
-            color: #0d0d0d;
+            font-weight: bold;
         }
     </style>
 </head>

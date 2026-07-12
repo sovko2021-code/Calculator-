@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор натяжных потолков</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; background: #f4f7fa; }
-        .calc { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        label { display: block; margin-top: 15px; font-weight: bold; }
-        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
-        .price { margin-top: 25px; font-size: 28px; font-weight: bold; color: #2c7be0; text-align: center; }
-        .share { margin-top: 20px; text-align: center; }
-        .btn { background: #2c7be0; color: white; padding: 12px 30px; border: none; border-radius: 30px; font-size: 18px; cursor: pointer; }
-        .btn:hover { background: #1a5bb5; }
-        #link { margin-top: 15px; word-break: break-all; color: #0a58ca; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор потолков</title>
+<style>
+body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
+input, select { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 8px; }
+button { width: 100%; padding: 15px; background: #2c7be0; color: white; border: none; border-radius: 30px; font-size: 18px; cursor: pointer; }
+.result { font-size: 30px; font-weight: bold; color: #2c7be0; text-align: center; margin-top: 20px; }
+</style>
 </head>
 <body>
-<div class="calc">
-    <h2>Расчёт натяжного потолка</h2>
 
-    <label>Длина комнаты (м)</label>
-    <input type="number" id="length" value="4" step="0.1">
+<div style="background:white; padding:30px; border-radius:16px; box-shadow:0 0 20px #ddd;">
+<h2>Расчёт натяжного потолка</h2>
 
-    <label>Ширина комнаты (м)</label>
-    <input type="number" id="width" value="3" step="0.1">
+<p>Длина (м)</p>
+<input type="number" id="d" value="4" step="0.1">
 
-    <label>Тип полотна</label>
-    <select id="material">
-        <option value="500">Матовый (500 ₽/м²)</option>
-        <option value="700">Глянцевый (700 ₽/м²)</option>
-        <option value="900">Сатин (900 ₽/м²)</option>
-    </select>
+<p>Ширина (м)</p>
+<input type="number" id="w" value="3" step="0.1">
 
-    <label>Количество светильников (шт)</label>
-    <input type="number" id="lights" value="4" min="0">
+<p>Тип полотна</p>
+<select id="m">
+    <option value="500">Матовый (500 ₽/м²)</option>
+    <option value="700">Глянцевый (700 ₽/м²)</option>
+    <option value="900">Сатин (900 ₽/м²)</option>
+</select>
 
-    <label>Трубы для обхода (шт)</label>
-    <input type="number" id="pipes" value="0" min="0">
+<p>Светильники (шт)</p>
+<input type="number" id="l" value="4" min="0">
 
-    <button class="btn" onclick="calculate()">Рассчитать стоимость</button>
+<p>Трубы (шт)</p>
+<input type="number" id="p" value="0" min="0">
 
-    <div class="price" id="result">0 ₽</div>
+<button onclick="calc()">Рассчитать стоимость</button>
 
-    <div class="share">
-        <button class="btn" onclick="shareLink()">📋 Скопировать ссылку с расчётом</button>
-        <div id="link"></div>
-    </div>
+<div class="result" id="res">0 ₽</div>
 </div>
 
 <script>
-function calculate() {
-    const length = parseFloat(document.getElementById('length').value) || 0;
-    const width = parseFloat(document.getElementById('width').value) || 0;
-    const materialPrice = parseFloat(document.getElementById('material').value);
-    const lights = parseInt(document.getElementById('lights').value) || 0;
-    const pipes = parseInt(document.getElementById('pipes').value) || 0;
+function calc() {
+    let d = document.getElementById('d').value;
+    let w = document.getElementById('w').value;
+    let m = document.getElementById('m').value;
+    let l = document.getElementById('l').value;
+    let p = document.getElementById('p').value;
 
-    const area = length * width;
-    const perimeter = (length + width) * 2;
+    // Если поля пустые, ставим 0
+    if (d == '') d = 0;
+    if (w == '') w = 0;
+    if (l == '') l = 0;
+    if (p == '') p = 0;
 
-    const priceMaterial = area * materialPrice;
-    const priceProfile = perimeter * 150; // 150 ₽ за метр профиля
-    const priceLights = lights * 500;     // 500 ₽ за установку светильника
-    const pricePipes = pipes * 400;       // 400 ₽ за обход трубы
-    const priceWork = area * 300;         // 300 ₽/м² работа
+    d = parseFloat(d);
+    w = parseFloat(w);
+    m = parseFloat(m);
+    l = parseInt(l);
+    p = parseInt(p);
 
-    const total = priceMaterial + priceProfile + priceLights + pricePipes + priceWork;
+    let area = d * w;
+    let perimeter = (d + w) * 2;
 
-    document.getElementById('result').innerHTML = total.toFixed(0) + ' ₽';
+    let total = (area * m) + (perimeter * 150) + (l * 500) + (p * 400) + (area * 300);
 
-    // Сохраняем в URL для ссылки (без перезагрузки)
-    const params = new URLSearchParams({
-        l: length, w: width, m: materialPrice, light: lights, pipe: pipes
-    });
-    window.history.replaceState({}, '', '?' + params.toString());
+    document.getElementById('res').innerHTML = total.toFixed(0) + ' ₽';
 }
 
-function shareLink() {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-        document.getElementById('link').innerHTML = '✅ Ссылка скопирована! Отправьте её клиенту.';
-    }).catch(() => {
-        document.getElementById('link').innerHTML = '⚠️ Скопируйте вручную: ' + url;
-    });
-}
+// Автоматический расчет при открытии страницы
+window.onload = calc;
+</script>
 
-// Автозагрузка параметров из ссылки (если есть
+</body>
+</html>

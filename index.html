@@ -19,171 +19,132 @@
             border: 1px solid #2a2a2a;
             border-top: 5px solid #c9a84c;
         }
-        .logo {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .logo h1 {
-            font-size: 34px;
-            color: #ffffff;
-            margin: 0;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
-        }
-        .logo h1 span {
-            color: #c9a84c;
-            text-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
-        }
-        .logo p {
-            color: #888;
-            font-size: 14px;
-            margin: 0;
-            letter-spacing: 6px;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 13px;
-            margin: -5px 0 15px 0;
-            border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 12px;
-        }
-        .tariffs {
-            display: flex;
-            gap: 8px;
-            margin: 15px 0 5px 0;
-            justify-content: center;
-        }
-        .tariff {
-            flex: 1;
-            text-align: center;
-            background: #0d0d0d;
-            padding: 8px 4px;
-            border-radius: 12px;
-            border: 1px solid #2a2a2a;
-            font-size: 11px;
-            color: #888;
-            transition: 0.3s;
-            cursor: default;
-        }
-        .tariff span {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            color: #ddd;
-        }
-        .tariff.active {
-            border-color: #c9a84c;
-            background: #1a1a1a;
-            box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
-        }
-        .tariff.active span {
-            color: #c9a84c;
-        }
-        .tariff.premium span {
-            color: #c9a84c;
-        }
-        .tariff.premium {
-            border-color: #c9a84c;
-        }
-        label { 
-            display: block; 
-            font-weight: 600; 
-            margin-top: 12px; 
-            color: #ddd;
-            font-size: 14px;
-        }
-        input, select { 
-            width: 100%; 
-            padding: 12px; 
-            margin-top: 4px; 
-            border: 2px solid #2a2a2a; 
-            border-radius: 12px; 
-            font-size: 16px; 
-            box-sizing: border-box;
-            transition: 0.3s;
-            background: #1a1a1a;
-            color: #fff;
-        }
-        input:focus, select:focus {
-            border-color: #c9a84c;
-            outline: none;
-            background: #222;
-            box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
-        }
-        select option {
-            background: #1a1a1a;
-            color: #fff;
-        }
-        button { 
-            width: 100%; 
-            padding: 16px; 
+        .logo { text-align: center; margin-bottom: 10px; }
+        .logo h1 { font-size: 34px; color: #ffffff; margin: 0; letter-spacing: 4px; font-weight: 700; text-shadow: 0 0 40px rgba(201, 168, 76, 0.15); }
+        .logo h1 span { color: #c9a84c; text-shadow: 0 0 30px rgba(201, 168, 76, 0.3); }
+        .logo p { color: #888; font-size: 14px; margin: 0; letter-spacing: 6px; }
+        .subtitle { text-align: center; color: #666; font-size: 13px; margin: -5px 0 15px 0; border-bottom: 1px solid #2a2a2a; padding-bottom: 12px; }
+        
+        .discount-banner {
             background: linear-gradient(135deg, #c9a84c, #b8923a);
-            color: #0d0d0d; 
-            border: none; 
-            border-radius: 30px; 
-            font-size: 20px; 
+            color: #0d0d0d;
+            text-align: center;
+            padding: 12px;
+            border-radius: 16px;
             font-weight: 700;
-            cursor: pointer; 
-            margin-top: 20px;
+            font-size: 18px;
+            margin: 5px 0 15px 0;
+            box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .discount-banner small {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .tariffs { display: flex; gap: 8px; margin: 15px 0 5px 0; justify-content: center; }
+        .tariff { flex: 1; text-align: center; background: #0d0d0d; padding: 8px 4px; border-radius: 12px; border: 1px solid #2a2a2a; font-size: 11px; color: #888; transition: 0.3s; cursor: pointer; }
+        .tariff span { display: block; font-size: 14px; font-weight: 700; color: #ddd; }
+        .tariff.active { border-color: #c9a84c; background: #1a1a1a; box-shadow: 0 0 20px rgba(201, 168, 76, 0.1); }
+        .tariff.active span { color: #c9a84c; }
+        .tariff.premium span { color: #c9a84c; }
+        .tariff.premium { border-color: #c9a84c; }
+
+        label { display: block; font-weight: 600; margin-top: 12px; color: #ddd; font-size: 14px; }
+        input, select { width: 100%; padding: 12px; margin-top: 4px; border: 2px solid #2a2a2a; border-radius: 12px; font-size: 16px; box-sizing: border-box; transition: 0.3s; background: #1a1a1a; color: #fff; }
+        input:focus, select:focus { border-color: #c9a84c; outline: none; background: #222; box-shadow: 0 0 20px rgba(201, 168, 76, 0.1); }
+        select option { background: #1a1a1a; color: #fff; }
+        
+        button { width: 100%; padding: 16px; background: linear-gradient(135deg, #c9a84c, #b8923a); color: #0d0d0d; border: none; border-radius: 30px; font-size: 20px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; letter-spacing: 1px; }
+        button:hover { transform: scale(1.02); box-shadow: 0 8px 35px rgba(201, 168, 76, 0.4); }
+        
+        .result { font-size: 34px; font-weight: 800; color: #ffffff; text-align: center; margin-top: 20px; padding: 15px; background: #0d0d0d; border-radius: 16px; border: 2px solid #c9a84c; }
+        .result span { color: #c9a84c; }
+        .result .old-price { font-size: 18px; color: #555; text-decoration: line-through; display: block; }
+        .result .discount-label { font-size: 14px; color: #c9a84c; display: block; margin-top: 5px; }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .social-buttons a {
+            flex: 1;
+            padding: 12px;
+            border-radius: 30px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
             transition: 0.3s;
+            color: #fff;
+        }
+        .social-buttons a:hover {
+            transform: scale(1.03);
+        }
+        .btn-telegram { background: #0088cc; }
+        .btn-viber { background: #665cac; }
+        .social-buttons a span { font-size: 18px; margin-right: 6px; }
+
+        .reviews {
+            margin-top: 20px;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 15px;
+        }
+        .reviews-title {
+            text-align: center;
+            color: #c9a84c;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 12px;
             letter-spacing: 1px;
         }
-        button:hover { 
-            transform: scale(1.02);
-            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.4);
-        }
-        .result { 
-            font-size: 34px; 
-            font-weight: 800; 
-            color: #ffffff; 
-            text-align: center; 
-            margin-top: 20px; 
-            padding: 15px;
+        .review {
             background: #0d0d0d;
             border-radius: 16px;
-            border: 2px solid #c9a84c;
+            padding: 14px;
+            margin-bottom: 10px;
+            border: 1px solid #1a1a1a;
+            transition: 0.3s;
         }
-        .result span {
+        .review:hover {
+            border-color: #c9a84c;
+        }
+        .review .name {
             color: #c9a84c;
-        }
-        .detail {
-            font-size: 13px;
-            color: #555;
-            text-align: center;
-            margin-top: 8px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 13px;
-            color: #444;
-            border-top: 1px solid #1a1a1a;
-            padding-top: 12px;
-        }
-        .footer a {
-            color: #c9a84c;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .badge {
-            display: inline-block;
-            background: #c9a84c;
-            color: #0d0d0d;
-            padding: 2px 14px;
-            border-radius: 20px;
-            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            font-size: 15px;
         }
-        .tagline {
-            text-align: center;
-            color: #888;
-            font-size: 12px;
-            margin: 10px 0 -5px 0;
-            letter-spacing: 1px;
+        .review .stars {
+            color: #c9a84c;
+            font-size: 16px;
+            letter-spacing: 2px;
         }
+        .review .text {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        .review .date {
+            color: #555;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .detail { font-size: 13px; color: #555; text-align: center; margin-top: 8px; }
+        .footer { text-align: center; margin-top: 15px; font-size: 13px; color: #444; border-top: 1px solid #1a1a1a; padding-top: 12px; }
+        .footer a { color: #c9a84c; text-decoration: none; font-weight: 600; }
+        .badge { display: inline-block; background: #c9a84c; color: #0d0d0d; padding: 2px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+        .tagline { text-align: center; color: #888; font-size: 12px; margin: 10px 0 -5px 0; letter-spacing: 1px; }
+        .currency-note { text-align: center; color: #555; font-size: 12px; margin-top: 4px; }
     </style>
 </head>
 <body>
@@ -199,7 +160,11 @@
         <span style="margin-left:8px; color:#444;">by Anton Voitovich</span>
     </div>
 
-    <!-- ТАРИФЫ -->
+    <div class="discount-banner">
+        🎁 СКИДКА 20% ДО КОНЦА ИЮЛЯ!
+        <small>При заказе через калькулятор</small>
+    </div>
+
     <div class="tagline">▼ ВЫБЕРИТЕ ВАШ ТАРИФ ▼</div>
     <div class="tariffs" id="tariffs">
         <div class="tariff active" data-price="0" onclick="selectTariff(this)">
@@ -224,10 +189,10 @@
 
     <label>🧵 Тип полотна</label>
     <select id="m">
-        <option value="500">Матовый (500 ₽/м²)</option>
-        <option value="700">Глянцевый (700 ₽/м²)</option>
-        <option value="900">Сатин (900 ₽/м²)</option>
-        <option value="1200">Тканевый (1200 ₽/м²)</option>
+        <option value="500">Матовый (500 BYN/м²)</option>
+        <option value="700">Глянцевый (700 BYN/м²)</option>
+        <option value="900">Сатин (900 BYN/м²)</option>
+        <option value="1200">Тканевый (1200 BYN/м²)</option>
     </select>
 
     <label>💡 Количество светильников</label>
@@ -238,8 +203,45 @@
 
     <button onclick="calc()">💰 Рассчитать стоимость</button>
 
-    <div class="result" id="res">0 <span>₽</span></div>
-    <div class="detail">* Ориентировочная стоимость с учётом материалов, работы и тарифа</div>
+    <div class="result" id="res">
+        0 <span>BYN</span>
+    </div>
+
+    <div class="social-buttons">
+        <a href="#" id="telegramLink" target="_blank" class="btn-telegram">
+            <span>✈️</span> Telegram
+        </a>
+        <a href="#" id="viberLink" target="_blank" class="btn-viber">
+            <span>💬</span> Viber
+        </a>
+    </div>
+
+    <div class="detail">* Отправьте смету, чтобы обсудить детали</div>
+
+    <div class="reviews">
+        <div class="reviews-title">⭐ ОТЗЫВЫ НАШИХ КЛИЕНТОВ ⭐</div>
+
+        <div class="review">
+            <div class="name">Анна С.</div>
+            <div class="stars">★★★★★</div>
+            <div class="text">"Заказывала матовый потолок в гостиную. Сделали быстро, качественно, без пыли. Рекомендую!"</div>
+            <div class="date">10 июля 2026</div>
+        </div>
+
+        <div class="review">
+            <div class="name">Елена К.</div>
+            <div class="stars">★★★★★</div>
+            <div class="text">"Очень понравился глянцевый потолок с подсветкой. Выглядит дорого и стильно. Спасибо Антону за консультацию!"</div>
+            <div class="date">5 июля 2026</div>
+        </div>
+
+        <div class="review">
+            <div class="name">Ольга М.</div>
+            <div class="stars">★★★★★</div>
+            <div class="text">"Делали сатиновый потолок в спальню. Цена приятно удивила, монтаж занял всего 1 день. Остались очень довольны!"</div>
+            <div class="date">28 июня 2026</div>
+        </div>
+    </div>
 
     <div class="footer">
         📞 <a href="tel:+71234567890">+7 (123) 456-78-90</a> &nbsp;|&nbsp; 
@@ -249,6 +251,7 @@
 
 <script>
 let selectedTariffPrice = 0;
+let currentTotal = 0;
 
 function selectTariff(el) {
     document.querySelectorAll('.tariff').forEach(t => t.classList.remove('active'));
@@ -269,7 +272,49 @@ function calc() {
 
     let total = (area * m) + (perimeter * 150) + (l * 500) + (p * 400) + (area * 300) + selectedTariffPrice;
 
-    document.getElementById('res').innerHTML = total.toFixed(0) + ' <span>₽</span>';
+    let discount = 0;
+    let now = new Date();
+    let endOfJuly = new Date(2026, 6, 31);
+    if (now <= endOfJuly) {
+        discount = total * 0.2;
+        total = total - discount;
+    }
+
+    currentTotal = Math.round(total);
+
+    let resultHtml = currentTotal + ' <span>BYN</span>';
+    if (discount > 0) {
+        let oldTotal = Math.round(total / 0.8);
+        resultHtml += `<span class="old-price">${oldTotal} BYN</span>`;
+        resultHtml += `<span class="discount-label">🔥 Скидка 20% — вы экономите ${Math.round(discount)} BYN</span>`;
+    }
+    document.getElementById('res').innerHTML = resultHtml;
+
+    updateSocialLinks();
+}
+
+function updateSocialLinks() {
+    let d = document.getElementById('d').value || 0;
+    let w = document.getElementById('w').value || 0;
+    let m = document.getElementById('m');
+    let material = m.options[m.selectedIndex].text;
+    let l = document.getElementById('l').value || 0;
+    let p = document.getElementById('p').value || 0;
+    let tariff = document.querySelector('.tariff.active span').textContent;
+
+    let message = `🏠 *Расчёт натяжного потолка POTOLUX*%0A%0A` +
+                  `📏 Длина: ${d} м%0A` +
+                  `📐 Ширина: ${w} м%0A` +
+                  `🧵 Полотно: ${material}%0A` +
+                  `💡 Светильники: ${l} шт%0A` +
+                  `🔧 Трубы: ${p} шт%0A` +
+                  `⭐ Тариф: ${tariff}%0A` +
+                  `💰 Итого: ${currentTotal} BYN%0A%0A` +
+                  `*Скидка 20% до конца июля!*%0A%0A` +
+                  `📞 Свяжитесь со мной для оформления!`;
+
+    document.getElementById('telegramLink').href = `https://t.me/share/url?url=&text=${message}`;
+    document.getElementById('viberLink').href = `viber://forward?text=${message}`;
 }
 
 window.onload = calc;

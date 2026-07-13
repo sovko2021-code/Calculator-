@@ -128,10 +128,23 @@
             background: #0d0d0d;
             border-radius: 16px;
             border: 2px solid #c9a84c;
+            transition: all 0.3s ease;
         }
         .result span { color: #c9a84c; }
         .result .old-price { font-size: 18px; color: #555; text-decoration: line-through; display: block; }
         .result .discount-label { font-size: 14px; color: #c9a84c; display: block; margin-top: 5px; }
+
+        /* АНИМАЦИЯ ПРИ РАСЧЁТЕ */
+        .result.animating {
+            animation: pop 0.4s ease;
+            border-color: #ffd700;
+            box-shadow: 0 0 40px rgba(201, 168, 76, 0.5);
+        }
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
         .social-buttons {
             display: flex;
@@ -304,10 +317,8 @@ function calc() {
     let area = d * w;
     let perimeter = (d + w) * 2;
 
-    // ПОЛОТНО + ПРОФИЛЬ (10 BYN/метр)
     let total = (area * m) + (perimeter * 10);
 
-    // ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ
     let lightLines = parseInt(document.getElementById('lightLines').value) || 0;
     let cornices = parseInt(document.getElementById('cornices').value) || 0;
     let track = parseInt(document.getElementById('track').value) || 0;
@@ -322,7 +333,6 @@ function calc() {
 
     total += lightLinesCost + cornicesCost + trackCost + magneticTrackCost + pipesCost;
 
-    // СКИДКА 20% ДО 31 ИЮЛЯ 2026
     let discount = 0;
     let now = new Date();
     let endOfJuly = new Date(2026, 6, 31);
@@ -331,28 +341,51 @@ function calc() {
         total = total - discount;
     }
 
-    currentTotal = Math.round(total);
+    let newTotal = Math.round(total);
+    let oldTotal = Math.round(total / 0.8);
 
-    // ПОКАЗЫВАЕМ ЦЕНЫ ОПЦИЙ
+    // АНИМАЦИЯ
+    animateNumber('res', newTotal, oldTotal, discount);
+
     document.getElementById('lightLinesPrice').innerHTML = lightLinesCost + ' BYN';
     document.getElementById('cornicesPrice').innerHTML = cornicesCost + ' BYN';
     document.getElementById('trackPrice').innerHTML = trackCost + ' BYN';
     document.getElementById('magneticTrackPrice').innerHTML = magneticTrackCost + ' BYN';
     document.getElementById('pipesPrice').innerHTML = pipesCost + ' BYN';
 
-    // ВЫВОД РЕЗУЛЬТАТА
-    let resultHtml = currentTotal + ' <span>BYN</span>';
-    if (discount > 0) {
-        let oldTotal = Math.round(total / 0.8);
-        resultHtml += `<span class="old-price">${oldTotal} BYN</span>`;
-        resultHtml += `<span class="discount-label">🔥 Скидка 20% — вы экономите ${Math.round(discount)} BYN</span>`;
-    }
-    document.getElementById('res').innerHTML = resultHtml;
-
-    updateSocialLinks();
+    updateSocialLinks(newTotal);
 }
 
-function updateSocialLinks() {
+function animateNumber(elementId, newTotal, oldTotal, discount) {
+    let el = document.getElementById(elementId);
+    let start = 0;
+    let duration = 400;
+    let startTime = null;
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        let progress = Math.min((timestamp - startTime) / duration, 1);
+        let current = Math.round(progress * newTotal);
+        let resultHtml = current + ' <span>BYN</span>';
+        if (discount > 0) {
+            resultHtml += `<span class="old-price">${oldTotal} BYN</span>`;
+            resultHtml += `<span class="discount-label">🔥 Скидка 20% — вы экономите ${Math.round(discount)} BYN</span>`;
+        }
+        el.innerHTML = resultHtml;
+
+        // Добавляем анимацию
+        el.classList.remove('animating');
+        void el.offsetWidth; // триггер перерисовки
+        el.classList.add('animating');
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+    requestAnimationFrame(step);
+}
+
+function updateSocialLinks(total) {
     let d = document.getElementById('d').value || 0;
     let w = document.getElementById('w').value || 0;
     let m = document.getElementById('m');
@@ -375,7 +408,7 @@ function updateSocialLinks() {
                   (track > 0 ? `🔌 Накладной шинопровод: ${track} м = ${track * 45} BYN%0A` : '') +
                   (magneticTrack > 0 ? `🧲 Магнитный трек: ${magneticTrack} м = ${magneticTrack * 160} BYN%0A` : '') +
                   (pipes > 0 ? `🔧 Трубы: ${pipes} обв. = ${pipes * 10} BYN%0A` : '') +
-                  `%0A💰 *Итого: ${currentTotal} BYN*%0A%0A` +
+                  `%0A💰 *Итого: ${total} BYN*%0A%0A` +
                   `*🎁 Скидка 20% до конца июля!*%0A%0A` +
                   `📞 Свяжитесь со мной для оформления!`;
 
@@ -383,7 +416,9 @@ function updateSocialLinks() {
     document.getElementById('viberLink').href = `viber://forward?text=${message}`;
 }
 
-window.onload = calc;
+window.onload = function() {
+    calc();
+};
 </script>
 
 </body>

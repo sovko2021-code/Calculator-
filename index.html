@@ -20,8 +20,8 @@
             border-top: 5px solid #c9a84c;
         }
         .logo { text-align: center; margin-bottom: 10px; }
-        .logo h1 { font-size: 34px; color: #ffffff; margin: 0; letter-spacing: 4px; font-weight: 700; text-shadow: 0 0 40px rgba(201, 168, 76, 0.15); }
-        .logo h1 span { color: #c9a84c; text-shadow: 0 0 30px rgba(201, 168, 76, 0.3); }
+        .logo h1 { font-size: 34px; color: #ffffff; margin: 0; letter-spacing: 4px; font-weight: 700; }
+        .logo h1 span { color: #c9a84c; }
         .logo p { color: #888; font-size: 14px; margin: 0; letter-spacing: 6px; }
         .subtitle { text-align: center; color: #666; font-size: 13px; margin: -5px 0 15px 0; border-bottom: 1px solid #2a2a2a; padding-bottom: 12px; }
         
@@ -34,7 +34,6 @@
             font-weight: 700;
             font-size: 18px;
             margin: 5px 0 15px 0;
-            box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -50,8 +49,8 @@
         }
 
         label { display: block; font-weight: 600; margin-top: 12px; color: #ddd; font-size: 14px; }
-        input, select { width: 100%; padding: 12px; margin-top: 4px; border: 2px solid #2a2a2a; border-radius: 12px; font-size: 16px; box-sizing: border-box; transition: 0.3s; background: #1a1a1a; color: #fff; }
-        input:focus, select:focus { border-color: #c9a84c; outline: none; background: #222; box-shadow: 0 0 20px rgba(201, 168, 76, 0.1); }
+        input, select { width: 100%; padding: 12px; margin-top: 4px; border: 2px solid #2a2a2a; border-radius: 12px; font-size: 16px; box-sizing: border-box; background: #1a1a1a; color: #fff; }
+        input:focus, select:focus { border-color: #c9a84c; outline: none; }
         select option { background: #1a1a1a; color: #fff; }
         
         .options-block {
@@ -65,7 +64,6 @@
             font-size: 15px;
             text-align: center;
             margin-bottom: 10px;
-            letter-spacing: 1px;
         }
         .option-row {
             display: flex;
@@ -106,10 +104,31 @@
             text-align: right;
         }
 
-        button { width: 100%; padding: 16px; background: linear-gradient(135deg, #c9a84c, #b8923a); color: #0d0d0d; border: none; border-radius: 30px; font-size: 20px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; letter-spacing: 1px; }
-        button:hover { transform: scale(1.02); box-shadow: 0 8px 35px rgba(201, 168, 76, 0.4); }
+        button { 
+            width: 100%; 
+            padding: 16px; 
+            background: linear-gradient(135deg, #c9a84c, #b8923a); 
+            color: #0d0d0d; 
+            border: none; 
+            border-radius: 30px; 
+            font-size: 20px; 
+            font-weight: 700;
+            cursor: pointer; 
+            margin-top: 20px;
+        }
+        button:hover { transform: scale(1.02); }
         
-        .result { font-size: 34px; font-weight: 800; color: #ffffff; text-align: center; margin-top: 20px; padding: 15px; background: #0d0d0d; border-radius: 16px; border: 2px solid #c9a84c; }
+        .result { 
+            font-size: 34px; 
+            font-weight: 800; 
+            color: #ffffff; 
+            text-align: center; 
+            margin-top: 20px; 
+            padding: 15px;
+            background: #0d0d0d;
+            border-radius: 16px;
+            border: 2px solid #c9a84c;
+        }
         .result span { color: #c9a84c; }
         .result .old-price { font-size: 18px; color: #555; text-decoration: line-through; display: block; }
         .result .discount-label { font-size: 14px; color: #c9a84c; display: block; margin-top: 5px; }
@@ -127,74 +146,30 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 14px;
-            transition: 0.3s;
             color: #fff;
         }
-        .social-buttons a:hover {
-            transform: scale(1.03);
-        }
+        .social-buttons a:hover { transform: scale(1.03); }
         .btn-telegram { background: #0088cc; }
         .btn-viber { background: #665cac; }
-        .social-buttons a span { font-size: 18px; margin-right: 6px; }
 
-        .reviews {
-            margin-top: 20px;
-            border-top: 1px solid #2a2a2a;
-            padding-top: 15px;
-        }
-        .reviews-title {
-            text-align: center;
-            color: #c9a84c;
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-        .review {
-            background: #0d0d0d;
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 10px;
-            border: 1px solid #1a1a1a;
-            transition: 0.3s;
-        }
-        .review:hover {
-            border-color: #c9a84c;
-        }
-        .review .name {
-            color: #c9a84c;
-            font-weight: 700;
-            font-size: 15px;
-        }
-        .review .stars {
-            color: #c9a84c;
-            font-size: 16px;
-            letter-spacing: 2px;
-        }
-        .review .text {
-            color: #aaa;
-            font-size: 13px;
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-        .review .date {
-            color: #555;
-            font-size: 11px;
-            margin-top: 4px;
-        }
+        .reviews { margin-top: 20px; border-top: 1px solid #2a2a2a; padding-top: 15px; }
+        .reviews-title { text-align: center; color: #c9a84c; font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+        .review { background: #0d0d0d; border-radius: 16px; padding: 14px; margin-bottom: 10px; border: 1px solid #1a1a1a; }
+        .review .name { color: #c9a84c; font-weight: 700; font-size: 15px; }
+        .review .stars { color: #c9a84c; font-size: 16px; }
+        .review .text { color: #aaa; font-size: 13px; margin-top: 4px; }
+        .review .date { color: #555; font-size: 11px; margin-top: 4px; }
 
         .detail { font-size: 13px; color: #555; text-align: center; margin-top: 8px; }
         .footer { text-align: center; margin-top: 15px; font-size: 13px; color: #444; border-top: 1px solid #1a1a1a; padding-top: 12px; }
         .footer a { color: #c9a84c; text-decoration: none; font-weight: 600; }
-        .badge { display: inline-block; background: #c9a84c; color: #0d0d0d; padding: 2px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
-
+        .badge { display: inline-block; background: #c9a84c; color: #0d0d0d; padding: 2px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; }
         .tariff-label {
             text-align: center;
             color: #c9a84c;
             font-weight: 700;
             font-size: 18px;
             margin: 15px 0 5px 0;
-            letter-spacing: 1px;
             background: #0d0d0d;
             padding: 10px;
             border-radius: 12px;
@@ -235,7 +210,6 @@
         <option value="32">Сатин (32 BYN/м²)</option>
     </select>
 
-    <!-- БЛОК С ДОП. ОПЦИЯМИ -->
     <div class="options-block">
         <div class="options-title">⚡ ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ</div>
 
@@ -282,17 +256,11 @@
 
     <button onclick="calc()">💰 Рассчитать стоимость</button>
 
-    <div class="result" id="res">
-        0 <span>BYN</span>
-    </div>
+    <div class="result" id="res">0 <span>BYN</span></div>
 
     <div class="social-buttons">
-        <a href="#" id="telegramLink" target="_blank" class="btn-telegram">
-            <span>✈️</span> Telegram
-        </a>
-        <a href="#" id="viberLink" target="_blank" class="btn-viber">
-            <span>💬</span> Viber
-        </a>
+        <a href="#" id="telegramLink" target="_blank" class="btn-telegram">✈️ Telegram</a>
+        <a href="#" id="viberLink" target="_blank" class="btn-viber">💬 Viber</a>
     </div>
 
     <div class="detail">* Отправьте смету, чтобы обсудить детали</div>
@@ -336,9 +304,10 @@ function calc() {
     let area = d * w;
     let perimeter = (d + w) * 2;
 
-    let total = (area * m) + (perimeter * 150);
+    // ПОЛОТНО + ПРОФИЛЬ (10 BYN/метр)
+    let total = (area * m) + (perimeter * 10);
 
-    // Доп. опции
+    // ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ
     let lightLines = parseInt(document.getElementById('lightLines').value) || 0;
     let cornices = parseInt(document.getElementById('cornices').value) || 0;
     let track = parseInt(document.getElementById('track').value) || 0;
@@ -353,7 +322,7 @@ function calc() {
 
     total += lightLinesCost + cornicesCost + trackCost + magneticTrackCost + pipesCost;
 
-    // Скидка 20% до 31 июля 2026
+    // СКИДКА 20% ДО 31 ИЮЛЯ 2026
     let discount = 0;
     let now = new Date();
     let endOfJuly = new Date(2026, 6, 31);
@@ -364,12 +333,14 @@ function calc() {
 
     currentTotal = Math.round(total);
 
+    // ПОКАЗЫВАЕМ ЦЕНЫ ОПЦИЙ
     document.getElementById('lightLinesPrice').innerHTML = lightLinesCost + ' BYN';
     document.getElementById('cornicesPrice').innerHTML = cornicesCost + ' BYN';
     document.getElementById('trackPrice').innerHTML = trackCost + ' BYN';
     document.getElementById('magneticTrackPrice').innerHTML = magneticTrackCost + ' BYN';
     document.getElementById('pipesPrice').innerHTML = pipesCost + ' BYN';
 
+    // ВЫВОД РЕЗУЛЬТАТА
     let resultHtml = currentTotal + ' <span>BYN</span>';
     if (discount > 0) {
         let oldTotal = Math.round(total / 0.8);
